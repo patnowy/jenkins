@@ -15,9 +15,9 @@ job('NodeJS Docker example') {
     steps {
         dockerBuildAndPublish {
             repositoryName('patnowy/nodejs-demo')
-            tag('${GIT_REVISION,length=9}')
+            tag('${GIT_REVISION,length=9}') // tag with git sha
             registryCredentials('dockerhub')
-            forcePull(false)
+            forcePull(false) // https://jenkinsci.github.io/job-dsl-plugin/
             forceTag(false)
             createFingerprints(false)
             skipDecorate()
